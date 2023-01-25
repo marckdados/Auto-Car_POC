@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/marckdados/Auto-Car_POC#readme",
   "devDependencies": {
+    "@prisma/client": "^4.9.0",
     "@types/express": "^4.17.16",
     "nodemon": "^2.0.20",
     "prisma": "^4.9.0",
