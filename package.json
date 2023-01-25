@@ -1,6 +1,7 @@
 {
   "name": "auto-car_poc",
   "version": "1.0.0",
+  "type": "module",
   "description": "Auto-Car é uma concessionária de veículos populares e esportivos com os melhores preço e carros do mercado ! 😎",
   "main": "index.js",
   "scripts": {
@@ -26,6 +27,7 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "joi": "^17.7.0"
   }
 }

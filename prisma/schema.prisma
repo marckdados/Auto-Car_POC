@@ -7,28 +7,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Brands {
-  id   Int      @id(map: "Brands_pk") @default(autoincrement())
-  name DateTime @db.Time(6)
-  Cars Cars[]
+model brands {
+  id   Int    @id(map: "brands_pk") @default(autoincrement())
+  name String
+  cars cars[]
 }
 
-model Cars {
-  id      Int     @id(map: "Cars_pk") @default(autoincrement())
+model cars {
+  id      Int     @id(map: "cars_pk") @default(autoincrement())
   name    String
   year    Int
   color   String
   used    Boolean @default(true)
   idBrand Int
-  Brands  Brands  @relation(fields: [idBrand], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Cars_fk0")
-  Sales   Sales[]
+  brands  brands  @relation(fields: [idBrand], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "cars_fk0")
+  sales   sales[]
 }
 
-model Sales {
-  id     Int      @id(map: "Sales_pk") @default(autoincrement())
+model sales {
+  id     Int      @id(map: "sales_pk") @default(autoincrement())
   buyer  String
   seller Int      @default(autoincrement())
   date   DateTime @db.Date
   idCar  Int
-  Cars   Cars     @relation(fields: [idCar], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Sales_fk0")
+  cars   cars     @relation(fields: [idCar], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "sales_fk0")
 }
