@@ -1,0 +1,30 @@
+{
+  "name": "auto-car_poc",
+  "version": "1.0.0",
+  "description": "Auto-Car é uma concessionária de veículos populares e esportivos com os melhores preço e carros do mercado ! 😎",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marckdados/Auto-Car_POC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marckdados/Auto-Car_POC/issues"
+  },
+  "homepage": "https://github.com/marckdados/Auto-Car_POC#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.16",
+    "nodemon": "^2.0.20",
+    "prisma": "^4.9.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
