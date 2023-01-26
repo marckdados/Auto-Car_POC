@@ -1,9 +1,9 @@
 import { Cars, CreateCar } from "../protocols/cars.protocols.js";
-import { carRepository, getAllCars, insertUniqueCar } from "../repositores/cars.repository.js";
+import { carRepository } from "../repositores/cars.repository.js";
 
-export async function createCarRules(car: CreateCar) {
+async function insertCar(car: CreateCar) {
   try {
-    const response = await insertUniqueCar(car);
+    const response = await carRepository.insertCar(car);
     return response;
   } catch (error) {
     console.log(error);
@@ -11,9 +11,9 @@ export async function createCarRules(car: CreateCar) {
   }
 }
 
-export async function listAllCarRules() : Promise<Cars[]> {
+async function getAllCars(): Promise<Cars[]> {
   try {
-    const response = await getAllCars();
+    const response = await carRepository.getAllCars();
     return response;
   } catch (error) {
     console.log(error);
@@ -21,11 +21,12 @@ export async function listAllCarRules() : Promise<Cars[]> {
   }
 }
 
-
-async function deleteCar(id: number){
+async function deleteCar(id: number) {
   await carRepository.deleteCar(id);
 }
 
 export const carService = {
-  deleteCar
-}
+  deleteCar,
+  getAllCars,
+  insertCar,
+};

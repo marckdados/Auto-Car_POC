@@ -1,24 +1,26 @@
 import prisma from "../database/db.js";
 import { CreateCar } from "../protocols/cars.protocols.js";
 
-export async function insertUniqueCar(car: CreateCar) {
+async function insertCar(car: CreateCar) {
   return prisma.cars.create({
     data: car,
   });
 }
 
-export async function getAllCars() {
-    return prisma.cars.findMany();
+async function getAllCars() {
+  return prisma.cars.findMany();
 }
 
-async function deleteCar(id: number){
+async function deleteCar(id: number) {
   return prisma.cars.delete({
-    where:{
-      id
-    }
-  })
+    where: {
+      id,
+    },
+  });
 }
 
 export const carRepository = {
-  deleteCar
-}
+  deleteCar,
+  getAllCars,
+  insertCar,
+};
