@@ -6,3 +6,19 @@ export async function insertUniqueCar(car: CreateCar) {
     data: car,
   });
 }
+
+export async function getAllCars() {
+    return prisma.cars.findMany();
+}
+
+async function deleteCar(id: number){
+  return prisma.cars.delete({
+    where:{
+      id
+    }
+  })
+}
+
+export const carRepository = {
+  deleteCar
+}

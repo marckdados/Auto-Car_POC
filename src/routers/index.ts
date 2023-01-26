@@ -1,7 +1,7 @@
 import { Router } from "express";
-import cars from "./cars.router.js";
+import carsRouter from "./carsRouter.js";
 
 const routers = Router();
-routers.use(cars);
+routers.use(carsRouter);
 
 export default routers;
