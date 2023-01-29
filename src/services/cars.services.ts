@@ -12,7 +12,7 @@ async function insertCar(car: EntityCars) {
   }
 }
 
-async function getAllCars(): Promise<Car[]> {
+async function getAllCars() {
   try {
     const response = await carRepository.getAllCars();
     return response;

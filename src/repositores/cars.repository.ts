@@ -12,6 +12,17 @@ async function getAllCars() {
     orderBy: {
       id: "asc",
     },
+    select: {
+      name: true,
+      year: true,
+      color: true,
+      used: true,
+      brands: {
+        select: {
+          name: true,
+        },
+      },
+    },
   });
 }
 

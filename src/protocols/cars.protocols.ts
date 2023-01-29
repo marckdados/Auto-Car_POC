@@ -1,5 +1,3 @@
-
-
 export type EntityCars = {
   id: number;
   name: string;
@@ -9,4 +7,9 @@ export type EntityCars = {
   idBrand: number;
 };
 
-export type Car = Omit<EntityCars, "id">
+export type EntityBrands = {
+  id: number;
+  name: string;
+};
+
+export type Car = Omit<EntityCars, "id"> ;
