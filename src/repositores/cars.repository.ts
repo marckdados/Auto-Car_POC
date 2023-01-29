@@ -1,14 +1,29 @@
 import prisma from "../database/db.js";
-import { CreateCar } from "../protocols/cars.protocols.js";
+import { Car, EntityCars } from "../protocols/cars.protocols.js";
 
-async function insertCar(car: CreateCar) {
+async function insertCar(car: EntityCars) {
   return prisma.cars.create({
     data: car,
   });
 }
 
 async function getAllCars() {
-  return prisma.cars.findMany();
+  return prisma.cars.findMany({
+    orderBy: {
+      id: "asc",
+    },
+    select: {
+      name: true,
+      year: true,
+      color: true,
+      used: true,
+      brands: {
+        select: {
+          name: true,
+        },
+      },
+    },
+  });
 }
 
 async function deleteCar(id: number) {
@@ -19,8 +34,27 @@ async function deleteCar(id: number) {
   });
 }
 
+async function searchCarId(id: number) {
+  return prisma.cars.findUnique({
+    where: {
+      id,
+    },
+  });
+}
+
+async function updateCar(id: number, car: Car) {
+  return prisma.cars.update({
+    where: {
+      id,
+    },
+    data: car,
+  });
+}
+
 export const carRepository = {
   deleteCar,
   getAllCars,
   insertCar,
+  searchCarId,
+  updateCar,
 };

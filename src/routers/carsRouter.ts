@@ -11,5 +11,10 @@ carsRouter.post(
 );
 carsRouter.get("/cars", carController.listAllCars);
 carsRouter.delete("/cars/:id", carController.deleteCar);
+carsRouter.put(
+  "/cars/:id",
+  carMiddleware.validateUpdateCar,
+  carController.updateCar
+);
 
 export default carsRouter;
