@@ -22,7 +22,7 @@ CREATE TABLE "cars" (
 CREATE TABLE "sales" (
     "id" SERIAL NOT NULL,
     "buyer" TEXT NOT NULL,
-    "seller" SERIAL NOT NULL,
+    "seller" TEXT NOT NULL,
     "date" DATE NOT NULL,
     "idCar" INTEGER NOT NULL,
 

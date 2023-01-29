@@ -7,9 +7,5 @@ export type EntityCars = {
   idBrand: number;
 };
 
-export type EntityBrands = {
-  id: number;
-  name: string;
-};
-
 export type Car = Omit<EntityCars, "id"> ;
+
