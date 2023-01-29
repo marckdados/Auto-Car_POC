@@ -1,10 +1,9 @@
 import { Request, Response } from "express";
-import { Cars, CreateCar } from "../protocols/cars.protocols.js";
+import { Car, EntityCars } from "../protocols/cars.protocols.js";
 import { carService } from "../services/cars.services.js";
 
-
 async function insertCar(req: Request, res: Response) {
-  const car = res.locals.cars as CreateCar;
+  const car = res.locals.cars as EntityCars;
   try {
     await carService.insertCar(car);
     res.sendStatus(201);
@@ -17,7 +16,7 @@ async function insertCar(req: Request, res: Response) {
 async function listAllCars(
   req: Request,
   res: Response
-): Promise<Response<Cars[] | Error>> {
+): Promise<Response<Car[] | Error>> {
   try {
     const response = await carService.getAllCars();
     return res.status(200).send(response);
@@ -40,8 +39,23 @@ async function deleteCar(req: Request, res: Response): Promise<Response> {
   }
 }
 
+async function updateCar(req: Request, res: Response): Promise<Response> {
+  const id = parseInt(req.params.id);
+  const car = req.body as Car;
+  try {
+    await carService.updateCar(id, car);
+    return res.sendStatus(200);
+  } catch (e) {
+    if (e.name === "NotFoundError") {
+      return res.sendStatus(404);
+    }
+    return res.sendStatus(500);
+  }
+}
+
 export const carController = {
   deleteCar,
   insertCar,
   listAllCars,
+  updateCar,
 };
