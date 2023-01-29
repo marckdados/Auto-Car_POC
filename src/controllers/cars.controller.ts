@@ -30,6 +30,7 @@ async function listAllCars(
 async function deleteCar(req: Request, res: Response): Promise<Response> {
   const id = parseInt(req.params.id);
   try {
+  
     await carService.deleteCar(id);
     return res.sendStatus(200);
   } catch (e) {

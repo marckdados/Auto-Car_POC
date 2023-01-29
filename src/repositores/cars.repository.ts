@@ -8,7 +8,11 @@ async function insertCar(car: CreateCar) {
 }
 
 async function getAllCars() {
-  return prisma.cars.findMany();
+  return prisma.cars.findMany({
+    orderBy: {
+      id: "asc",
+    },
+  });
 }
 
 async function deleteCar(id: number) {
