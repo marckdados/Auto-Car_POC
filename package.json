@@ -5,7 +5,11 @@
   "description": "Auto-Car é uma concessionária de veículos populares e esportivos com os melhores preço e carros do mercado ! 😎",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.ts"
+    "dev": "nodemon src/server.ts",
+    "prisma:seed": "npx prisma db seed"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "repository": {
     "type": "git",
