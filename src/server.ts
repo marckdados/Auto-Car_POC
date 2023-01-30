@@ -5,4 +5,5 @@ const app = express();
 app.use(json());
 app.use(routers);
 
-app.listen(4000, ()=> console.log("Running port 4000"))
+
+app.listen(4000, () => console.log("Running port 4000"));
