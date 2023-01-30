@@ -27,7 +27,7 @@ model cars {
 model sales {
   id     Int      @id(map: "sales_pk") @default(autoincrement())
   buyer  String
-  seller Int      @default(autoincrement())
+  seller String
   date   DateTime @db.Date
   idCar  Int
   cars   cars     @relation(fields: [idCar], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "sales_fk0")

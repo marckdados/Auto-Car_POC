@@ -64,13 +64,13 @@ async function main() {
             idCar: 1,
             buyer: "Rodrigo Campos",
             date: new Date(),
-            seller: 1,
+            seller: "Jair Gomes",
           },
           {
             idCar: 2,
             buyer: "Renata Campos",
             date: new Date(),
-            seller: 1,
+            seller: "Jair Gomes",
           },
         ],
       });
