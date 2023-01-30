@@ -17,6 +17,20 @@ async function createSale(req: Request, res: Response) {
   }
 }
 
+async function getAllSales(req: Request, res: Response) {
+  try {
+    const response = await saleService.getAllSales();
+    return res.status(httpStatus.OK).send(response);
+  } catch (e) {
+    console.log(e);
+    if (e.name === "NotFoundError") {
+      return res.sendStatus(httpStatus.NOT_FOUND);
+    }
+    return res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
+  }
+}
+
 export const salesController = {
   createSale,
+  getAllSales,
 };

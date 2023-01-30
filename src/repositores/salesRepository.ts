@@ -7,6 +7,11 @@ async function createSale(sale: Sale) {
   });
 }
 
+async function getAllSales() {
+  return prisma.sales.findMany();
+}
+
 export const saleRepository = {
   createSale,
+  getAllSales,
 };

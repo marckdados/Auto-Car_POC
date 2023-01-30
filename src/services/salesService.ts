@@ -11,6 +11,15 @@ async function createSale(sale: Sale) {
   await saleRepository.createSale(sale);
 }
 
+async function getAllSales() {
+  const response = await saleRepository.getAllSales();
+  if (!response) {
+    throw notFoundError();
+  }
+  return response;
+}
+
 export const saleService = {
   createSale,
+  getAllSales,
 };

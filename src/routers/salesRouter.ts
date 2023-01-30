@@ -10,5 +10,6 @@ sallesRouter.post(
   validateSalesSchemaMiddleware(salesSchema),
   salesController.createSale
 );
+sallesRouter.get("/sales", salesController.getAllSales);
 
 export default sallesRouter;
